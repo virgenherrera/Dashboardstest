@@ -38,24 +38,33 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var cucumber_1 = require("cucumber");
 var LoginPage_1 = require("../pages/LoginPage");
-//import { expect } from 'chai'
+var chai_1 = require("chai");
+/*
+    Created By   : Gilberto Sanchez
+
+    Feature      : Login.feature
+    Scenarios    :
+                    User login with invalid credentials
+                    User login with valid credentials
+
+    Modified BY  :
+    Modified Date:
+    Funct Added  :
+*/
 var loginPage = new LoginPage_1.LoginPage();
 cucumber_1.defineSupportCode(function (_a) {
     var Given = _a.Given, When = _a.When, Then = _a.Then;
     Given(/^A valid username$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: 
-                //await browser.get(config.baseUrl);
-                return [4 /*yield*/, loginPage.SetUserName("auser")];
+                case 0: return [4 /*yield*/, loginPage.SetUserName("auser")];
                 case 1:
-                    //await browser.get(config.baseUrl);
                     _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
-    Given(/^A valid password$/, function () { return __awaiter(_this, void 0, void 0, function () {
+    Given(/^A valid password$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, loginPage.SetPassword("prominder")];
@@ -75,9 +84,48 @@ cucumber_1.defineSupportCode(function (_a) {
             }
         });
     }); });
-    Then(/^I am able to acces Eldermark's dashboards page$/, function () { return __awaiter(_this, void 0, void 0, function () {
+    Then(/^I am able to acces Eldermark's dashboards page$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/];
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, loginPage.lblEldermakAdmin.getText().then(function (text) {
+                        chai_1.expect(text).to.contain('Eldermark');
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    Given(/^A invalid username$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, loginPage.SetUserName("admin")];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    Given(/^A invalid password$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, loginPage.SetPassword("password")];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    Then(/^The application displays an error message$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, loginPage.lblError.getText().then(function (text) {
+                        chai_1.expect(text).to.contain('is incorrect.');
+                    })];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
         });
     }); });
 });

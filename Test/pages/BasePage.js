@@ -17,7 +17,7 @@ var IdentificationType;
 var BasePage = (function () {
     function BasePage() {
         this.HighlightElement = function (el) {
-            //browser.driver.wait(EC.visibilityOf(el), 10000, "Element not found")
+            protractor_1.browser.driver.wait(EC.visibilityOf(el), 10000, "Element not found");
             return protractor_1.browser.driver.executeScript("arguments[0].setAttribute('style', arguments[1]);", el.getWebElement(), "background: yellow").
                 then(function (resp) {
                 protractor_1.browser.driver.sleep(2000);
@@ -30,41 +30,34 @@ var BasePage = (function () {
     BasePage.prototype.ElementLocator = function (obj) {
         switch (obj.type) {
             case IdentificationType[IdentificationType.Xpath]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.xpath(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.xpath(obj.value)));
                 return protractor_1.element(protractor_1.by.xpath(obj.value));
             case IdentificationType[IdentificationType.ClassName]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.className(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.className(obj.value)));
                 return protractor_1.element(protractor_1.by.className(obj.value));
             case IdentificationType[IdentificationType.Id]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.id(obj.value))), 10000, "Element not found");
                 this.HighlightElement(protractor_1.element(protractor_1.by.id(obj.value)));
                 return protractor_1.element(protractor_1.by.id(obj.value));
             case IdentificationType[IdentificationType.Name]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.name(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.name(obj.value)));
                 return protractor_1.element(protractor_1.by.name(obj.value));
             case IdentificationType[IdentificationType.Css]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.css(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.css(obj.value)));
                 return protractor_1.element(protractor_1.by.css(obj.value));
             case IdentificationType[IdentificationType.LinkText]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.linkText(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.linkText(obj.value)));
                 return protractor_1.element(protractor_1.by.linkText(obj.value));
             case IdentificationType[IdentificationType.PartialLinkText]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.partialLinkText(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.partialLinkText(obj.value)));
                 return protractor_1.element(protractor_1.by.partialLinkText(obj.value));
             case IdentificationType[IdentificationType.TagName]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.tagName(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.tagName(obj.value)));
                 return protractor_1.element(protractor_1.by.tagName(obj.value));
             case IdentificationType[IdentificationType.Js]:
-                protractor_1.browser.driver.wait(EC.visibilityOf(protractor_1.element(protractor_1.by.js(obj.value))), 10000, "Element not found");
+                this.HighlightElement(protractor_1.element(protractor_1.by.js(obj.value)));
                 return protractor_1.element(protractor_1.by.js(obj.value));
             default:
                 break;
-        }
-    };
-    BasePage.prototype.HighLight = function (webelement) {
-        for (var i = 0; 1 < 3; i++) {
-            protractor_1.browser.driver.executeScript("arguments[0].setAttribute('style','background: yellow')", webelement);
-            protractor_1.browser.driver.executeScript("arguments[0].setAttribute('style','background:')", webelement);
         }
     };
     return BasePage;

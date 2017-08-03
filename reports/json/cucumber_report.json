@@ -4,15 +4,81 @@
     "line": 1,
     "name": "Validate login page",
     "tags": [],
-    "uri": "c:\\Dashboardtest\\Test\\features\\Login.feature",
+    "uri": "c:\\Dasboard2\\Test\\features\\Login.feature",
     "elements": [
       {
         "keyword": "Scenario",
         "line": 4,
-        "name": "User login with valid credentials",
+        "name": "User login with invalid credentials",
         "tags": [
           {
             "line": 3,
+            "name": "@end-to-end"
+          }
+        ],
+        "id": "validate-login-page;user-login-with-invalid-credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "A invalid username",
+            "result": {
+              "status": "passed",
+              "duration": 4104
+            },
+            "line": 5,
+            "match": {
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:29"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "A invalid password",
+            "result": {
+              "status": "passed",
+              "duration": 156
+            },
+            "line": 6,
+            "match": {
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:33"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I click on login button",
+            "result": {
+              "status": "passed",
+              "duration": 94
+            },
+            "line": 7,
+            "match": {
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:19"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "The application displays an error message",
+            "result": {
+              "status": "passed",
+              "duration": 485
+            },
+            "line": 8,
+            "match": {
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:37"
+            }
+          }
+        ]
+      },
+      {
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "User login with valid credentials",
+        "tags": [
+          {
+            "line": 10,
             "name": "@end-to-end"
           }
         ],
@@ -24,11 +90,11 @@
             "name": "A valid username",
             "result": {
               "status": "passed",
-              "duration": 9725
+              "duration": 103
             },
-            "line": 5,
+            "line": 12,
             "match": {
-              "location": "c:\\Dashboardtest\\Test\\steps\\LoginSteps.ts:11"
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:11"
             }
           },
           {
@@ -37,11 +103,11 @@
             "name": "A valid password",
             "result": {
               "status": "passed",
-              "duration": 293
+              "duration": 115
             },
-            "line": 6,
+            "line": 13,
             "match": {
-              "location": "c:\\Dashboardtest\\Test\\steps\\LoginSteps.ts:16"
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:15"
             }
           },
           {
@@ -50,11 +116,11 @@
             "name": "I click on login button",
             "result": {
               "status": "passed",
-              "duration": 191
+              "duration": 76
             },
-            "line": 7,
+            "line": 14,
             "match": {
-              "location": "c:\\Dashboardtest\\Test\\steps\\LoginSteps.ts:20"
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:19"
             }
           },
           {
@@ -63,11 +129,11 @@
             "name": "I am able to acces Eldermark's dashboards page",
             "result": {
               "status": "passed",
-              "duration": 1
+              "duration": 541
             },
-            "line": 8,
+            "line": 15,
             "match": {
-              "location": "c:\\Dashboardtest\\Test\\steps\\LoginSteps.ts:24"
+              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:23"
             }
           }
         ]

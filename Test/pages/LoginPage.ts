@@ -4,7 +4,7 @@ import { IdentificationType, BasePage } from "./BasePage";
 //WebElements
 const Locators = {
     txtUserName: {
-        type:IdentificationType[IdentificationType.Id],
+        type: IdentificationType[IdentificationType.Id],
         value: "username"
     },
 
@@ -19,33 +19,37 @@ const Locators = {
     },
 
     lblError: {
-        type: IdentificationType[IdentificationType.Css],
-        value: ".error"
+        type: IdentificationType[IdentificationType.ClassName],
+        value: "error"
+    },
+
+    lblEldermakAdmin: {
+        type: IdentificationType[IdentificationType.Xpath],
+        value: ".//*[contains(text(),'Administrator')]"
     }
 }
 
-export class LoginPage extends BasePage{
+export class LoginPage extends BasePage {
 
     txtUserName = this.ElementLocator(Locators.txtUserName);
     txtPassword = this.ElementLocator(Locators.txtPassword);
     btnLogin = this.ElementLocator(Locators.btnLogin);
-    lblError = this.ElementLocator(Locators.lblError);
+    public lblError = this.ElementLocator(Locators.lblError);
+    public lblEldermakAdmin = this.ElementLocator(Locators.lblEldermakAdmin);
 
-    async SetUserName(userName:string){
+    async SetUserName(userName: string) {
+        await browser.driver.sleep(2);
+        await this.txtUserName.clear();
         await this.txtUserName.sendKeys(userName);
     }
 
-    async SetPassword(password:string){
+    async SetPassword(password: string) {
+        await browser.driver.sleep(2);
+        await this.txtPassword.clear();
         await this.txtPassword.sendKeys(password);
     }
 
-    async ClickLoginButton(){
+    async ClickLoginButton() {
         await this.btnLogin.click();
-    }
-
-    async GetErrorLoginLabel(){
-        await this.lblError.getText().then((text) =>{
-            console.log(`Error login: ${text}`);
-        });
     }
 }

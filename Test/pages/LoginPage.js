@@ -45,6 +45,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var protractor_1 = require("protractor");
 var BasePage_1 = require("./BasePage");
 //WebElements
 var Locators = {
@@ -61,8 +62,12 @@ var Locators = {
         value: "loginBtn"
     },
     lblError: {
-        type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Css],
-        value: ".error"
+        type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.ClassName],
+        value: "error"
+    },
+    lblEldermakAdmin: {
+        type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
+        value: ".//*[contains(text(),'Administrator')]"
     }
 };
 var LoginPage = (function (_super) {
@@ -73,14 +78,21 @@ var LoginPage = (function (_super) {
         _this.txtPassword = _this.ElementLocator(Locators.txtPassword);
         _this.btnLogin = _this.ElementLocator(Locators.btnLogin);
         _this.lblError = _this.ElementLocator(Locators.lblError);
+        _this.lblEldermakAdmin = _this.ElementLocator(Locators.lblEldermakAdmin);
         return _this;
     }
     LoginPage.prototype.SetUserName = function (userName) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.txtUserName.sendKeys(userName)];
+                    case 0: return [4 /*yield*/, protractor_1.browser.driver.sleep(2)];
                     case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.txtUserName.clear()];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, this.txtUserName.sendKeys(userName)];
+                    case 3:
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -91,8 +103,14 @@ var LoginPage = (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.txtPassword.sendKeys(password)];
+                    case 0: return [4 /*yield*/, protractor_1.browser.driver.sleep(2)];
                     case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.txtPassword.clear()];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, this.txtPassword.sendKeys(password)];
+                    case 3:
                         _a.sent();
                         return [2 /*return*/];
                 }
@@ -104,20 +122,6 @@ var LoginPage = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.btnLogin.click()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    LoginPage.prototype.GetErrorLoginLabel = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.lblError.getText().then(function (text) {
-                            console.log("Error login: " + text);
-                        })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];

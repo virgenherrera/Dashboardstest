@@ -5,9 +5,9 @@ import { config } from "../steps/conf";
 
 defineSupportCode(({ registerHandler, registerListener }) => {
 
-   // registerHandler('BeforeScenario', async () => {
-   //     await browser.driver.get("https://app.eldermark.com/demo7");
-   // });
+    registerHandler('BeforeScenario', async () => {
+        console.log('New Scenrio executed!!');
+    });
 
     registerListener(JsonFormatter);
 
