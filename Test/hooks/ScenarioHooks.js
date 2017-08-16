@@ -42,7 +42,7 @@ cucumber_1.defineSupportCode(function (_a) {
     var registerHandler = _a.registerHandler, registerListener = _a.registerListener;
     registerHandler('BeforeScenario', function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            console.log('New Scenrio executed!!');
+            console.log('New Scenario executed!!');
             return [2 /*return*/];
         });
     }); });

@@ -1,8 +1,7 @@
 import { defineSupportCode } from 'cucumber'
 import { browser, by, element } from "protractor";
 import { LoginPage } from "../pages/LoginPage";
-import { config } from "../steps/conf";
-import { expect } from 'chai'
+import { expect } from 'chai';
 
 /*
     Created By   : Gilberto Sanchez
@@ -33,7 +32,7 @@ defineSupportCode(({ Given, When, Then }) => {
         await loginPage.ClickLoginButton();
     });
 
-    Then(/^I am able to acces Eldermark's dashboards page$/, { timeout: 60 * 1000 }, async () => {
+    Then(/^I am able to access Eldermark's dashboards page$/, { timeout: 60 * 1000 }, async () => {
         await loginPage.lblEldermakAdmin.getText().then((text) =>{
             expect(text).to.contain('Eldermark');
         });

@@ -13,18 +13,19 @@ var IdentificationType;
     IdentificationType[IdentificationType["LinkText"] = 6] = "LinkText";
     IdentificationType[IdentificationType["TagName"] = 7] = "TagName";
     IdentificationType[IdentificationType["ClassName"] = 8] = "ClassName";
+    IdentificationType[IdentificationType["All"] = 9] = "All";
 })(IdentificationType = exports.IdentificationType || (exports.IdentificationType = {}));
 var BasePage = (function () {
     function BasePage() {
         this.HighlightElement = function (el) {
-            protractor_1.browser.driver.wait(EC.visibilityOf(el), 10000, "Element not found");
-            return protractor_1.browser.driver.executeScript("arguments[0].setAttribute('style', arguments[1]);", el.getWebElement(), "background: yellow").
-                then(function (resp) {
-                protractor_1.browser.driver.sleep(2000);
-                return el;
-            }, function (err) {
-                console.log("error is :" + err);
-            });
+            // browser.driver.wait(EC.visibilityOf(el), 10000, "Element not found")
+            // return browser.driver.executeScript("arguments[0].setAttribute('style', arguments[1]);", el.getWebElement(), "background: yellow").
+            //     then( (resp) => {
+            //         browser.driver.sleep(2000);
+            //         return el;
+            //     }, function (err) {
+            //         console.log("error is :" + err);
+            //     });
         };
     }
     BasePage.prototype.ElementLocator = function (obj) {
@@ -56,6 +57,8 @@ var BasePage = (function () {
             case IdentificationType[IdentificationType.Js]:
                 this.HighlightElement(protractor_1.element(protractor_1.by.js(obj.value)));
                 return protractor_1.element(protractor_1.by.js(obj.value));
+            case IdentificationType[IdentificationType.All]:
+                return protractor_1.element.all(protractor_1.by.xpath(obj.value));
             default:
                 break;
         }

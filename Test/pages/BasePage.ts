@@ -11,7 +11,8 @@ export enum IdentificationType {
     PartialLinkText,
     LinkText,
     TagName,
-    ClassName
+    ClassName, 
+    All
 }
 
 export class BasePage {
@@ -45,19 +46,21 @@ export class BasePage {
             case IdentificationType[IdentificationType.Js]:
                 this.HighlightElement(element(by.js(obj.value)));
                 return element(by.js(obj.value));
+            case IdentificationType[IdentificationType.All]:
+                return element.all(by.xpath(obj.value));
             default:
                 break;
         }
     }
 
     HighlightElement = (el) => {
-        browser.driver.wait(EC.visibilityOf(el), 10000, "Element not found")
-        return browser.driver.executeScript("arguments[0].setAttribute('style', arguments[1]);", el.getWebElement(), "background: yellow").
-            then( (resp) => {
-                browser.driver.sleep(2000);
-                return el;
-            }, function (err) {
-                console.log("error is :" + err);
-            });
+        // browser.driver.wait(EC.visibilityOf(el), 10000, "Element not found")
+        // return browser.driver.executeScript("arguments[0].setAttribute('style', arguments[1]);", el.getWebElement(), "background: yellow").
+        //     then( (resp) => {
+        //         browser.driver.sleep(2000);
+        //         return el;
+        //     }, function (err) {
+        //         console.log("error is :" + err);
+        //     });
     };
 }

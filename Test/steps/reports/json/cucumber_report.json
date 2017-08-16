@@ -4,7 +4,7 @@
     "line": 1,
     "name": "Validate login page",
     "tags": [],
-    "uri": "c:\\Dasboard2\\Test\\features\\Login.feature",
+    "uri": "C:\\Dashboards\\Dashboardstest\\Test\\features\\Login.feature",
     "elements": [
       {
         "keyword": "Scenario",
@@ -24,11 +24,11 @@
             "name": "A invalid username",
             "result": {
               "status": "passed",
-              "duration": 4104
+              "duration": 4532
             },
             "line": 5,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:29"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:41"
             }
           },
           {
@@ -37,11 +37,11 @@
             "name": "A invalid password",
             "result": {
               "status": "passed",
-              "duration": 156
+              "duration": 139
             },
             "line": 6,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:33"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:45"
             }
           },
           {
@@ -50,11 +50,11 @@
             "name": "I click on login button",
             "result": {
               "status": "passed",
-              "duration": 94
+              "duration": 84
             },
             "line": 7,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:19"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:31"
             }
           },
           {
@@ -63,11 +63,11 @@
             "name": "The application displays an error message",
             "result": {
               "status": "passed",
-              "duration": 485
+              "duration": 547
             },
             "line": 8,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:37"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:49"
             }
           }
         ]
@@ -90,11 +90,11 @@
             "name": "A valid username",
             "result": {
               "status": "passed",
-              "duration": 103
+              "duration": 93
             },
             "line": 12,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:11"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:23"
             }
           },
           {
@@ -103,11 +103,11 @@
             "name": "A valid password",
             "result": {
               "status": "passed",
-              "duration": 115
+              "duration": 101
             },
             "line": 13,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:15"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:27"
             }
           },
           {
@@ -116,24 +116,24 @@
             "name": "I click on login button",
             "result": {
               "status": "passed",
-              "duration": 76
+              "duration": 63
             },
             "line": 14,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:19"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:31"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "name": "I am able to acces Eldermark's dashboards page",
+            "name": "I am able to access Eldermark's dashboards page",
             "result": {
               "status": "passed",
-              "duration": 541
+              "duration": 521
             },
             "line": 15,
             "match": {
-              "location": "c:\\Dasboard2\\Test\\steps\\LoginSteps.ts:23"
+              "location": "C:\\Dashboards\\Dashboardstest\\Test\\steps\\LoginSteps.ts:35"
             }
           }
         ]

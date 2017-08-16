@@ -45,48 +45,57 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var protractor_1 = require("protractor");
 var BasePage_1 = require("./BasePage");
 //WebElements
 var Locators = {
     lnkBilling: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']//span[contains(text(),'Billing')]"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[1]"
     },
     lnkCensus: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[2]/span"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[2]"
     },
     lnkClinical: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']//span[contains(text(),'Clinical')]"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[3]"
     },
     lnkEmar: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']//span[contains(text(),'EMAR')]"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[4]"
     },
     lnkIncidents: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[5]/span"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[5]"
     },
     lnkMarketing: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[6]/span"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[6]"
     },
     lnkResidents: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[7]/span"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[7]"
     },
     lnkServices: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']//span[contains(text(),'Services')]"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[8]"
     },
     lnkStaff: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
-        value: ".//*[@id='app']//span[contains(text(),'Staff')]"
+        value: ".//*[@id='app']/tbody/tr/td/table/tbody/tr/td[1]/div/div[2]/div/div/ol/li[9]"
+    },
+    lnkReports: {
+        type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
+        value: ".//*[@id='app']//span[contains(text(),'Reports')]"
     },
     txtSearch: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Id],
         value: "quickSearch"
+    },
+    btnPlusVersion: {
+        type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
+        value: ".//*[@id='react']/div/div/div/div/div[4]/span"
     },
     btnSearch: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
@@ -103,6 +112,10 @@ var Locators = {
     btnResetDashboard: {
         type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
         value: ".//*[@id='content']/div[1]/div/table/tbody/tr/td/div/div/div/div/div[1]/div/div/div[6]/input"
+    },
+    ddlCommunity: {
+        type: BasePage_1.IdentificationType[BasePage_1.IdentificationType.Xpath],
+        value: ".//*[@id='content']/div[1]/div/div/div[2]/div/div/div/a/span[1]/span"
     }
 };
 var MenuPage = (function (_super) {
@@ -118,11 +131,14 @@ var MenuPage = (function (_super) {
         _this.lnkResidents = _this.ElementLocator(Locators.lnkResidents);
         _this.lnkServices = _this.ElementLocator(Locators.lnkServices);
         _this.lnkStaff = _this.ElementLocator(Locators.lnkStaff);
+        _this.lnkReports = _this.ElementLocator(Locators.lnkReports);
+        _this.btnPlusVersion = _this.ElementLocator(Locators.btnPlusVersion);
         _this.txtSearch = _this.ElementLocator(Locators.txtSearch);
         _this.btnSearch = _this.ElementLocator(Locators.btnSearch);
         _this.btnEditDash = _this.ElementLocator(Locators.btnEditDash);
         _this.btnDone = _this.ElementLocator(Locators.btnDone);
         _this.btnResetDashboard = _this.ElementLocator(Locators.btnResetDashboard);
+        _this.ddlCommunity = _this.ElementLocator(Locators.ddlCommunity);
         return _this;
     }
     MenuPage.prototype.ClickOnBillingMenu = function () {
@@ -233,11 +249,35 @@ var MenuPage = (function (_super) {
             });
         });
     };
+    MenuPage.prototype.ClickOnReportsMenu = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.lnkReports.click()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     MenuPage.prototype.SetSearch = function (searchText) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.txtSearch.sendKeys(searchText)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MenuPage.prototype.ClickOnPlusVersion = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.btnPlusVersion.click()];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -286,6 +326,22 @@ var MenuPage = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.btnResetDashboard.click()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MenuPage.prototype.SelectCommunity = function (community) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.ddlCommunity.click().then(function () {
+                            protractor_1.element(protractor_1.by.xpath(".//*[text()='" + community + "']")).click();
+                        });
+                        return [4 /*yield*/, protractor_1.browser.driver.sleep(3000)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];

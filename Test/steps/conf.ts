@@ -21,11 +21,17 @@ export let config: Config = {
         browser.driver.manage().timeouts().implicitlyWait(5000);
     },
 
+    suites: {
+        "Login": "../features/Login.feature",
+        "Staff": "../features/Staff.feature"
+    },
+
     cucumberOpts: {
         compiler: "ts:ts-node/register",
         strict: true,
         format: ['pretty'],
         require: [
+            "../steps/staff/*.js",
             "../steps/*.js",
             "../hooks/*.js"
         ],

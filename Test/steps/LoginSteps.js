@@ -84,7 +84,7 @@ cucumber_1.defineSupportCode(function (_a) {
             }
         });
     }); });
-    Then(/^I am able to acces Eldermark's dashboards page$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
+    Then(/^I am able to access Eldermark's dashboards page$/, { timeout: 60 * 1000 }, function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, loginPage.lblEldermakAdmin.getText().then(function (text) {

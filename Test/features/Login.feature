@@ -12,4 +12,4 @@ Scenario: User login with valid credentials
     Given A valid username
     And   A valid password
     When  I click on login button
-    Then  I am able to acces Eldermark's dashboards page
+    Then  I am able to access Eldermark's dashboards page

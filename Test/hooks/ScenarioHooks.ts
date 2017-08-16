@@ -6,7 +6,7 @@ import { config } from "../steps/conf";
 defineSupportCode(({ registerHandler, registerListener }) => {
 
     registerHandler('BeforeScenario', async () => {
-        console.log('New Scenrio executed!!');
+        console.log('New Scenario executed!!');
     });
 
     registerListener(JsonFormatter);
